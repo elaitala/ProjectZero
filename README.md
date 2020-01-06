@@ -27,8 +27,8 @@ Game Logic:
 
 Wireframes:
 
-![Lanesplitting Gameplay](images/Lanesplitting 101_title.jpg)
-![Lanesplitting Gameplay](images/Lanesplitting 101_gameplay.jpg)
+![Lanesplitting Gameplay](/images/Lanesplitting 101_title.jpg)
+![Lanesplitting Gameplay](/images/Lanesplitting 101_gameplay.jpg)
 
 # Stretch Goals
 
