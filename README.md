@@ -11,9 +11,7 @@ User Story:
 -Player presses start and game begins
   - Player uses arrow keys to navigate traffic
   - Right and left moves laterally/changes lane
-  - Forward and back accelerates and brakes
 - Game scrolls from top to bottom at static speed until determined end
-- Cars can randomly shift in their lanes and squeeze your path
 
 Game Logic:
 - Each car operates within 1 of 3 lanes
@@ -29,13 +27,16 @@ Game Logic:
 Wireframes:
 
 Start Screen:
-![Lanesplitting Title](~/images/Lanesplitting_101_title.jpg)
+![Lanesplitting Title](~/images/Lanesplitting_101_title.jpg);
 
 Game Play:
-![Lanesplitting Gameplay](images/Lanesplitting_101_gameplay.jpg)
+![Lanesplitting Gameplay](images/Lanesplitting_101_gameplay.jpg);
 
 
 # Stretch Goals
+
+Controls
+- Forward and back accelerates and brakes
 
 - Cars can change lanes
 - Cars may or may not use their blinkers
@@ -45,5 +46,5 @@ Game Play:
 - Added goals:
   - Go fast, don't die (User conrols speed of scrolling with up/down buttons)
   - Make it to the finish line (General Assembly) before 9am (Timed)
-- Game in persepective
+- Game in perspective
 

@@ -1,0 +1,50 @@
+/* Build the road */
+/* Black road with green sides */
+/* Lane stripes */
+body {
+  background-color: green;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 40px;
+  color: white;
+}
+
+canvas {
+  width: 500px;
+  height: 500px;
+  padding: 0;
+  margin: auto;
+  display: block;
+}
+
+header {
+  width: 100%;
+  display: block;
+  height: 100px;
+  background-color:yellow;
+  margin-bottom: 1%;
+  padding-bottom: 1%;
+  padding-left: 1.5%;
+}
+
+.cars div {
+  width:  10vh;
+  height: 20vh;
+  margin-right: 1%;
+  display: inline-block;
+  background-color: blue;
+}
+
+.play {
+  display: flex;
+  position: absolute;
+  top: 300;
+  left: 150
+}
+
+#game-over {
+  display: none;
+  position: absolute;
+  top: 250;
+  left: 200;
+  color: red;
+}
