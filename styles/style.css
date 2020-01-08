@@ -1,6 +1,7 @@
 /* Build the road */
 /* Black road with green sides */
 /* Lane stripes */
+
 body {
   background-color: green;
   font-family: Arial, Helvetica, sans-serif;
@@ -8,22 +9,45 @@ body {
   color: white;
 }
 
-canvas {
+/* canvas {
   width: 500px;
   height: 500px;
   padding: 0;
   margin: auto;
   display: block;
-}
+} */
 
 header {
   width: 100%;
   display: block;
-  height: 100px;
+  height: 50px;
   background-color:yellow;
   margin-bottom: 1%;
   padding-bottom: 1%;
   padding-left: 1.5%;
+}
+
+.road div {
+  background: url(/images/3_lane_road.png) repeat center center fixed; 
+  /* -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover; */
+  /* width:  600vh;
+  height: 800vh;
+  margin-right: 1%;
+  display: inline-block; */
+  -webkit-animation:160s scroll infinite linear reverse;
+  -moz-animation:160s scroll infinite linear reverse;
+  -o-animation:160s scroll infinite linear reverse;
+  -ms-animation:160s scroll infinite linear reverse;
+  animation:160s scroll infinite linear reverse;
+  margin: 0 auto;
+  position: relative;
+  height: 400px;
+  width: 800px;
+  
+  background-color: orange;
 }
 
 .cars div {
@@ -34,7 +58,15 @@ header {
   background-color: blue;
 }
 
-.play {
+.motorcycle div {
+  width:  5vh;
+  height: 10vh;
+  margin-right: 1%;
+  display: inline-block;
+  background-color: red;
+}
+
+/* .play {
   display: flex;
   position: absolute;
   top: 300;
@@ -47,4 +79,4 @@ header {
   top: 250;
   left: 200;
   color: red;
-}
+} */
