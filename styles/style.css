@@ -5,7 +5,7 @@
 body {
   background-color: green;
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 40px;
+  font-size: 15px;
   color: white;
 }
 
@@ -20,50 +20,75 @@ body {
 header {
   width: 100%;
   display: block;
-  height: 50px;
+  height: 40px;
   background-color:yellow;
   margin-bottom: 1%;
   padding-bottom: 1%;
   padding-left: 1.5%;
 }
 
-.road div {
-  background: url(/images/3_lane_road.png) repeat center center fixed; 
-  /* -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover; */
-  /* width:  600vh;
-  height: 800vh;
-  margin-right: 1%;
-  display: inline-block; */
-  -webkit-animation:160s scroll infinite linear reverse;
-  -moz-animation:160s scroll infinite linear reverse;
-  -o-animation:160s scroll infinite linear reverse;
-  -ms-animation:160s scroll infinite linear reverse;
-  animation:160s scroll infinite linear reverse;
+.road {
+  background: url(/images/3_lane_road.png) repeat center;
+  /* repeat center fixed;  */
+  /* -webkit-background-size: cover; */
+  /* -moz-background-size: cover; */
+  /* -o-background-size: cover; */
+  /* background-size: cover; */
+  /* width:  600vh; */
+  /* height: 800vh; */
+  /* margin-right: 1%; */
+  /* display: inline-block; */
+  /* -webkit-animation:160s scroll infinite linear reverse; */
+  /* -moz-animation:160s scroll infinite linear reverse; */
+  /* -o-animation:160s scroll infinite linear reverse; */
+  /* -ms-animation:160s scroll infinite linear reverse; */
+  /* animation:3s linear infinite  reverse;
   margin: 0 auto;
   position: relative;
-  height: 400px;
-  width: 800px;
+  height: 300px;
+  width: 500px;
   
-  background-color: orange;
+  background-color: orange; */
+  position: absolute;
+  background-color: crimson;
+  top: 0%;
+  width: 480px;
+  height: 300px;
+  border: 1px solid #000;
+  /* animation-name: animatefall;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear; */
+  
+  animation: 2s animatefall infinite linear;
 }
 
-.cars div {
+@keyframes animatefall {
+  from {
+    top: -10%;
+  }
+
+  to {
+    top: 100%;
+  }
+}
+
+.cars {
   width:  10vh;
   height: 20vh;
   margin-right: 1%;
   display: inline-block;
   background-color: blue;
+  /* position: relative; */
 }
 
-.motorcycle div {
+.motorcycle {
   width:  5vh;
   height: 10vh;
   margin-right: 1%;
   display: inline-block;
   background-color: red;
+  /* position: absolute; */
 }
 
 /* .play {
