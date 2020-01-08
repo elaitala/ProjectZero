@@ -2,20 +2,11 @@
 /* Black road with green sides */
 /* Lane stripes */
 
-body {
-  background-color: green;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 15px;
-  color: white;
-}
-
-/* canvas {
-  width: 500px;
-  height: 500px;
+* {
   padding: 0;
-  margin: auto;
-  display: block;
-} */
+  margin: 0;
+  box-sizing: border-box;
+}
 
 header {
   width: 100%;
@@ -27,54 +18,57 @@ header {
   padding-left: 1.5%;
 }
 
-.road {
-  background: url(/images/3_lane_road.png) repeat center;
-  /* repeat center fixed;  */
-  /* -webkit-background-size: cover; */
-  /* -moz-background-size: cover; */
-  /* -o-background-size: cover; */
-  /* background-size: cover; */
-  /* width:  600vh; */
-  /* height: 800vh; */
-  /* margin-right: 1%; */
-  /* display: inline-block; */
-  /* -webkit-animation:160s scroll infinite linear reverse; */
-  /* -moz-animation:160s scroll infinite linear reverse; */
-  /* -o-animation:160s scroll infinite linear reverse; */
-  /* -ms-animation:160s scroll infinite linear reverse; */
-  /* animation:3s linear infinite  reverse;
-  margin: 0 auto;
-  position: relative;
-  height: 300px;
-  width: 500px;
-  
-  background-color: orange; */
-  position: absolute;
-  background-color: crimson;
-  top: 0%;
-  width: 480px;
-  height: 300px;
-  border: 1px solid #000;
-  /* animation-name: animatefall;
-  animation-duration: 2s;
-  animation-iteration-count: infinite;
-  animation-timing-function: linear; */
-  
-  animation: 2s animatefall infinite linear;
+body {
+  background-color: green;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 15px;
+  color: white;
 }
 
-@keyframes animatefall {
+main {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+/* .game {
+  overflow: hidden;
+  width: 400px;
+  height: 300px;
+  border: 3px solid #000;
+} */
+
+.road {
+  background-color: orange;
+  background-image: url(/images/3_lane_road.png);
+  background-size: cover;
+  background-position: relative;
+  background-repeat: repeat;
+  top: 10%;
+  width: 75vw;
+  height: 85vh;
+  border: 1px solid #000;
+  animation-name: slide;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  animation-delay: 0ms;
+  margin: 5% auto 0;
+}
+
+@keyframes slide {
   from {
-    top: -10%;
+    background-position: -10% 0;
   }
 
   to {
-    top: 100%;
+    background-position: 0 100vh;
   }
 }
 
 .cars {
-  width:  10vh;
+  width:  10vw;
   height: 20vh;
   margin-right: 1%;
   display: inline-block;
@@ -83,7 +77,7 @@ header {
 }
 
 .motorcycle {
-  width:  5vh;
+  width:  5vw;
   height: 10vh;
   margin-right: 1%;
   display: inline-block;
