@@ -1,88 +1,89 @@
 /* Build the road */
 /* Black road with green sides */
 /* Lane stripes */
-
-* {
-  padding: 0;
+body{
+  /* height: 100vh; */
+  /* width: 100vw; */
+  display: grid;
+  justify-content: center;
+  place-items: center;
   margin: 0;
-  box-sizing: border-box;
+  padding: 0;
 }
 
-header {
-  width: 100%;
-  display: block;
-  height: 40px;
-  background-color:yellow;
-  margin-bottom: 1%;
-  padding-bottom: 1%;
-  padding-left: 1.5%;
-}
-
-body {
-  background-color: green;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 15px;
-  color: white;
-}
-
-main {
-  width: 100vw;
-  height: 100vh;
-  position: relative;
+.game {
+  border: solid 1px black;
+  display: inline-block;
   overflow: hidden;
+  width: 75vw;
+  height: 60vh;
 }
-
-/* .game {
-  overflow: hidden;
-  width: 400px;
-  height: 300px;
-  border: 3px solid #000;
-} */
 
 .road {
-  background-color: orange;
-  background-image: url(/images/3_lane_road.png);
-  background-size: cover;
-  background-position: relative;
-  background-repeat: repeat;
-  top: 10%;
-  width: 75vw;
-  height: 85vh;
-  border: 1px solid #000;
-  animation-name: slide;
-  animation-duration: 4s;
-  animation-iteration-count: infinite;
-  animation-timing-function: linear;
-  animation-delay: 0ms;
-  margin: 5% auto 0;
+  width: 100%;
+  position: relative;
+  animation: scroll 5s infinite linear;
+  display: inline-block;
 }
 
-@keyframes slide {
-  from {
-    background-position: -10% 0;
-  }
+.road:after {
+  content: "";
+  height: 100vh;
+  width: 100%;
+  left: 0px;
+  position: absolute;
+  background-image: url(/images/3_lane_road.png);
+  background-size: 100% 400%;
+}
 
-  to {
-    background-position: 0 100vh;
-  }
+.img {
+  width: 75vw;
+}
+
+@keyframes scroll {
+  from {transform: translateY(-100%);}
+    to {transform: translateY(0);}
+
 }
 
 .cars {
-  width:  10vw;
-  height: 20vh;
-  margin-right: 1%;
+  width:  14vw;
+  height: 24vh;
+  /* margin-right: 1%; */
+  
   display: inline-block;
   background-color: blue;
+  
+  animation-name: vroom;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
   /* position: relative; */
 }
+
+/* @keyframes vroom {
+  from {
+    position: 0 0;
+  }
+
+  to {
+    position: 0 180vh;
+  }
+} */
 
 .motorcycle {
   width:  5vw;
   height: 10vh;
-  margin-right: 1%;
+  /* margin-right: auto; */
+  /* margin-left: auto; */
   display: inline-block;
+  position: absolute;
+  /* text-align: center; */
+  /* bottom: 10vh; */
   background-color: red;
-  /* position: absolute; */
+  /* margin: 5% auto 0; */
+  /* flex-wrap: center; */
+  /* justify-content: center; */
 }
 
 /* .play {

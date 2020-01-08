@@ -35,61 +35,7 @@ console.log('The game is running...')
 // Add object collision
 // 
 
-// // inside main_javascript.js 
-  
-// var road = document.getElementById('canvas'); 
-  
-// // The 2D Context for the HTML canvas element. It 
-// // provides objects, methods, and properties to draw and 
-// // manipulate graphics on a canvas drawing surface. 
-// var ctx = road.getContext('2d'); 
-  
-// // canvas width and height 
-// road.width = 1500; 
-// road.height =1000; 
-  
-// // create an image element 
-// var img = new Image(); 
-  
-// // specify the image source relative to the html or js file 
-// // when the image is in the same directory as the file 
-// // only the file name is required: 
-// img.src = "/images/3_lane_road.png"; 
-  
-// // window.onload is an event that occurs when all the assets 
-// // have been succesfuly loaded( in this case only the spacebg.png) 
-// window.onload = function() { 
-//     // the initial image height 
-//     var imgHeight = 0; 
-  
-//     // the scroll speed 
-//     // an important thing to ensure here is that can.height 
-//     // is divisible by scrollSpeed 
-//     var scrollSpeed = 10; 
-  
-//     // this is the primary animation loop that is called 60 times 
-//     // per second 
-//     function loop() 
-//     { 
-//         // draw image 1 
-//         ctx.drawImage(img, 0, imgHeight); 
-  
-//         // draw image 2 
-//         ctx.drawImage(img, 0, imgHeight - road.height); 
-  
-//         // update image height 
-//         imgHeight += scrollSpeed; 
-  
-//         // reseting the images when the first image entirely exits the screen 
-//         if (imgHeight == road.height) 
-//             imgHeight = 0; 
-  
-//         // this function creates a 60fps animation by scheduling a 
-//         // loop function call before the 
-//         // next redraw every time it is called 
-//         window.requestAnimationFrame(loop); 
-//     } 
-  
+
 //     // this initiates the animation by calling the loop function 
 //     // for the first time 
 //     loop(); 
@@ -200,3 +146,88 @@ console.log('The game is running...')
 //     myGamePiece.newPos();    
 //     myGamePiece.update();
 // }
+
+// var objImage= null;
+// 	function init(){
+// 		objImage=document.getElementById("motorcycle");				
+// 		objImage.style.position='relative';
+// 		objImage.style.left='60vw';
+//     objImage.style.top='60vh';
+//     console.log('motorcycle rendered');
+// 	}
+// 	function getKeyAndMove(e){				
+//     console.log('Motorcycle moving...');
+//     var key_code=e.keyCode;
+// 		switch(key_code){
+// 			case 37: //left arrow key
+//         console.log('Key Left');
+//         moveLeft();
+// 				break;
+// 			case 38: //Up arrow key
+//         console.log('Key Up');
+//         moveUp();
+// 				break;
+// 			case 39: //right arrow key
+//         console.log('Key Right');
+//         moveRight();
+// 				break;
+// 			case 40: //down arrow key
+//         console.log('Key Down');
+//         moveDown();
+// 				break;						
+// 		}
+// 	}
+// 	function moveLeft(){
+// 		objImage.style.left=parseInt(objImage.style.left)-5 +'vw';
+// 	}
+// 	function moveUp(){
+// 		objImage.style.top=parseInt(objImage.style.top)-5 +'vh';
+// 	}
+// 	function moveRight(){
+// 		objImage.style.left=parseInt(objImage.style.left)+5 +'vw';
+// 	}
+// 	function moveDown(){
+// 		objImage.style.top=parseInt(objImage.style.top)+5 +'vh';
+// 	}
+//   window.onload=init;
+  
+//   getKeyAndMove();
+
+function component(width, height, color, x, y) {
+  this.width = width;
+  this.height = height;
+  this.speedX = 0;
+  this.speedY = 0;
+  this.x = x;
+  this.y = y;
+  this.update = function() {
+    ctx = myGameArea.context;
+    ctx.fillStyle = color;
+    ctx.fillRect(this.x, this.y, this.width, this.height);
+  }
+  this.newPos = function() {
+    this.x += this.speedX;
+    this.y += this.speedY;
+  }
+}
+
+function updateGameArea() {
+  myGameArea.clear();
+  myGamePiece.newPos();
+  myGamePiece.update();
+}
+
+function moveup() {
+  myGamePiece.speedY -= 1;
+}
+
+function movedown() {
+  myGamePiece.speedY += 1;
+}
+
+function moveleft() {
+  myGamePiece.speedX -= 1;
+}
+
+function moveright() {
+  myGamePiece.speedX += 1;
