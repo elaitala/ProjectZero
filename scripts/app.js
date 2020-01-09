@@ -40,6 +40,10 @@ var traffic = [];
 window.addEventListener('keydown', keyDownHandler, false);
 window.addEventListener('keyup', keyUpHandler, false);
 
+var rightPressed = false;
+var leftPressed = false;
+var upPressed = false;
+var downPressed = false;
 
 function keyDownHandler(event) {
   if(event.keyCode == 39) {
@@ -62,20 +66,20 @@ function keyDownHandler(event) {
 
 function keyUpHandler(event) {
   if(event.keyCode == 39) {
-    console.log('Go right!');  
-    rightPressed = true;
+    console.log('Stop right!');  
+    rightPressed = false;
   }
   else if(event.keyCode == 37) {
-    console.log('Go left!');
-      leftPressed = true;
+    console.log('Stop left!');
+      leftPressed = false;
   }
   if(event.keyCode == 40) {
-    console.log('Go slower!');
-    downPressed = true;
+    console.log('Stop slower!');
+    downPressed = false;
   }
   else if(event.keyCode == 38) {
-    console.log('Go faster!');
-    upPressed = true;
+    console.log('Stop faster!');
+    upPressed = false;
   }
 }
 
