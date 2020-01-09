@@ -28,13 +28,14 @@ body{
 .road {
   width: 100%;
   position: relative;
-  animation: scroll 8s infinite linear reverse;
+  /* animation: scroll 8s infinite linear reverse; */
+  animation: none;
   display: inline-block;
 }
 
 .road:after {
   content: "";
-  height: 500%;
+  height: 1500%;
   width: 100%;
   left: 0px;
   position: absolute;
@@ -42,9 +43,10 @@ body{
   background-size: 100% 5%;
 }
 
-/* .img {
+.img {
   width: 100%;
-} */
+  display: block;
+}
 
 @keyframes scroll {
   from {transform: translateY(-100%);}
@@ -103,3 +105,22 @@ body{
   left: 200;
   color: red;
 } */
+
+#game-over{
+  background: url(/images/Skull.jpg);
+  display: none;
+  position: absolute;
+  top: 250px;
+  left: 180px;
+  color: red;
+  font-size: 50px;
+  z-index: 3;
+}
+#winner{
+  display: none;
+  position: absolute;
+  top: 250px;
+  left: 65px;
+  color: green;
+  z-index: 3;
+}

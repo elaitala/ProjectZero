@@ -43,12 +43,14 @@ console.log('The game is running...')
 //    rect1.y + rect1.height > rect2.y) {
 //     // collision detected!
 // }
+var traffic = [1];
 
 var motorcycle = {
   x: 0,
   y: 0,
   width: 35,
   height: 75,
+  life: 1,
 };
 
 var car = {
@@ -58,7 +60,19 @@ var car = {
   height: 100,
 };
 
-setInterval(function (){
+var spacePressed = false;
+
+function keyDownHandler(event) {
+  if(event.keyCode == 32) {
+    console.log('Space bar');  
+    spacePressed = true;
+    $(".road").css("animation","scroll 8s infinite linear reverse");
+    $(".cars").css("display","none");
+    $(".motorcycle").css("display","none");
+}
+}
+
+var game = setInterval(function (){
   var carPos = $('#car').position();
   car.x = carPos.left;
   car.y = carPos.top;
@@ -75,16 +89,40 @@ setInterval(function (){
     motorcycle.y < car.y + car.height &&
     motorcycle.y + motorcycle.height > car.y) {
     // collision detected!
-     console.log('Splat!!');
-     return;
-     
+      console.log('Splat!!');
+      clearInterval(game);
+      $("#game-over").css("display","block");
+      $(".road").css("animation","none");
+      $(".cars").css("display","none");
+      $(".motorcycle").css("display","none");
+      // clearMe = true; // Used to clear the canvas from any ships		
+    
+  if (traffic.length === 0){
+    console.log('Winner!!');
+      clearInterval(game);
+      $("#winner").css("display","block");
+      $(".road").css("animation","none");
+      $(".cars").css("animation","none");
+      $(".cars").css("display","none");
   }
-},100)
+  // subtract from life 
+    // motorcycle.life -=1;       
+  }
+
+  // if(traffic.length === 0){
+  //   fill(0,255,0);
+  //   textSize(100);
+  //   text("Survived another day!", width/2-200,height/2);
+  // }else if(motorcycle.life === 0){
+  //   fill(255,0,0);
+  //   textSize(100);
+  //   text("Splat!", width/2-200,height/2);
+  // }
 
 
+},1000)
 
-var traffic = [];
-
+// Use ARROW KEYS to control the motorcycle
 window.addEventListener('keydown', keyDownHandler, false);
 window.addEventListener('keyup', keyUpHandler, false);
 
@@ -138,20 +176,3 @@ function keyUpHandler(event) {
     upPressed = false;
   }
 }
-
-// function keyPressed(){
-//   if(key == 'A' || keyCode == LEFT_ARROW){
-//     console.log('Left pressed');
-//     motorcycle.vel.x = -motorcycle.speed;
-//       }if(key == 'D' || keyCode == RIGHT_ARROW){
-//         console.log('Right pressed');
-//         motorcycle.vel.x = motorcycle.speed;
-//       }
-//   }
-
-// function keyReleased(){
-//   if(key == 'A' || keyCode == LEFT_ARROW || key == 'D' || keyCode == RIGHT_ARROW){
-//     console.log('Release');
-//     motorcycle.vel.x = 0;
-//   }
-// }
