@@ -34,7 +34,12 @@ console.log('The game is running...')
 
 // Add object collision
 // 
-var motorcycle;
+const motorcycle = {
+  // x: 25;
+  // y: 10;
+  // width: 5;
+  // height: 10;
+};
 var traffic = [];
 
 window.addEventListener('keydown', keyDownHandler, false);
@@ -49,10 +54,15 @@ function keyDownHandler(event) {
   if(event.keyCode == 39) {
     console.log('Go right!');  
     rightPressed = true;
+    $(".motorcycle").animate({
+      left: "-=5"
+    // motorcycle.x +=;
   }
   else if(event.keyCode == 37) {
     console.log('Go left!');
       leftPressed = true;
+      $(".motorcycle").animate({
+        left: "+=5"
   }
   if(event.keyCode == 40) {
     console.log('Go slower!');

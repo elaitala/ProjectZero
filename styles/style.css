@@ -6,7 +6,7 @@ body{
   width: 100vw;
   display: grid;
   justify-content: center;
-  place-items: center;
+  /* place-items: center; */
   margin: 0;
   padding: 0;
   background-color: green;
@@ -15,10 +15,13 @@ body{
 
 .game {
   border: solid 2px black;
-  display: inline-block;
+  /* display: inline-block; */
   overflow: hidden;
-  width: 75vw;
-  height: 60vh;
+  position: relative;
+  /* width: 75vw; */
+  /* height: 60vh; */
+  width: 450px;
+  height: 550px;
   z-index: 1;
 }
 
@@ -50,8 +53,9 @@ body{
 }
 
 .cars {
-  width:  14vw;
-  height: 24vh;
+  /* background-image: url(/images/); */
+  /* width:  75px; */
+  height: 150px;
   position: absolute;
   
   /* z-index: 2; */
@@ -78,16 +82,18 @@ body{
 } */
 
 .motorcycle {
-  width:  5vw;
-  height: 10vh;
+  /* background-image: url(/images/); */
+  width:  35px;
+  height: 75px;
   /* z-index: 2; */
   /* margin-right: auto; */
   /* margin-left: auto; */
-  display: inline-block;
+  /* display: inline-block; */
   position: absolute;
   /* text-align: center; */
-  right: 25vh;
-  bottom: 10vh;
+  right: 10px;
+  bottom: 10px;
+  
   background-color: red;
   /* margin: 5% auto 0; */
   /* flex-wrap: center; */
