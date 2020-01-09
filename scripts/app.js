@@ -36,3 +36,62 @@ console.log('The game is running...')
 // 
 var motorcycle;
 var traffic = [];
+
+window.addEventListener('keydown', keyDownHandler, false);
+window.addEventListener('keyup', keyUpHandler, false);
+
+
+function keyDownHandler(event) {
+  if(event.keyCode == 39) {
+    console.log('Go right!');  
+    rightPressed = true;
+  }
+  else if(event.keyCode == 37) {
+    console.log('Go left!');
+      leftPressed = true;
+  }
+  if(event.keyCode == 40) {
+    console.log('Go slower!');
+    downPressed = true;
+  }
+  else if(event.keyCode == 38) {
+    console.log('Go faster!');
+    upPressed = true;
+  }
+}
+
+function keyUpHandler(event) {
+  if(event.keyCode == 39) {
+    console.log('Go right!');  
+    rightPressed = true;
+  }
+  else if(event.keyCode == 37) {
+    console.log('Go left!');
+      leftPressed = true;
+  }
+  if(event.keyCode == 40) {
+    console.log('Go slower!');
+    downPressed = true;
+  }
+  else if(event.keyCode == 38) {
+    console.log('Go faster!');
+    upPressed = true;
+  }
+}
+
+// function keyPressed(){
+//   if(key == 'A' || keyCode == LEFT_ARROW){
+//     console.log('Left pressed');
+//     motorcycle.vel.x = -motorcycle.speed;
+//       }if(key == 'D' || keyCode == RIGHT_ARROW){
+//         console.log('Right pressed');
+//         motorcycle.vel.x = motorcycle.speed;
+//       }
+//   }
+
+// function keyReleased(){
+//   if(key == 'A' || keyCode == LEFT_ARROW || key == 'D' || keyCode == RIGHT_ARROW){
+//     console.log('Release');
+//     motorcycle.vel.x = 0;
+//   }
+// }
