@@ -55,14 +55,17 @@ function keyDownHandler(event) {
     console.log('Go right!');  
     rightPressed = true;
     $(".motorcycle").animate({
-      left: "-=5"
+      left: "+=10"
     // motorcycle.x +=;
-  }
+  })
+}
   else if(event.keyCode == 37) {
     console.log('Go left!');
       leftPressed = true;
       $(".motorcycle").animate({
-        left: "+=5"
+        left: "-=10"
+      // motorcycle.x +=;
+    })
   }
   if(event.keyCode == 40) {
     console.log('Go slower!');
