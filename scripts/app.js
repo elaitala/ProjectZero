@@ -55,7 +55,7 @@ function keyDownHandler(event) {
     console.log('Go right!');  
     rightPressed = true;
     $(".motorcycle").animate({
-      left: "+=10"
+      left: "+=20"
     // motorcycle.x +=;
   })
 }
@@ -63,7 +63,7 @@ function keyDownHandler(event) {
     console.log('Go left!');
       leftPressed = true;
       $(".motorcycle").animate({
-        left: "-=10"
+        left: "-=20"
       // motorcycle.x +=;
     })
   }
