@@ -34,12 +34,55 @@ console.log('The game is running...')
 
 // Add object collision
 // 
-const motorcycle = {
-  // x: 25;
-  // y: 10;
-  // width: 5;
-  // height: 10;
+// var rect1 = {x: 5, y: 5, width: 50, height: 50}
+// var rect2 = {x: 20, y: 10, width: 10, height: 10}
+
+// if (rect1.x < rect2.x + rect2.width &&
+//    rect1.x + rect1.width > rect2.x &&
+//    rect1.y < rect2.y + rect2.height &&
+//    rect1.y + rect1.height > rect2.y) {
+//     // collision detected!
+// }
+
+var motorcycle = {
+  x: 0,
+  y: 0,
+  width: 35,
+  height: 75,
 };
+
+var car = {
+  x: null,
+  y: null,
+  width: 75,
+  height: 100,
+};
+
+setInterval(function (){
+  var carPos = $('#car').position();
+  car.x = carPos.left;
+  car.y = carPos.top;
+  // console.log('Car X: ' + car.x + ", Y: " + car.y );
+
+  var motorcyclePos = $('#motorcycle').position();
+  motorcycle.x = motorcyclePos.left;
+  motorcycle.y = motorcyclePos.top;
+  // console.log('Mcy X: ' + motorcycle.x + ", Y: " + motorcycle.y );
+
+  // Collision Detection
+  if (motorcycle.x < car.x + car.width &&
+    motorcycle.x + motorcycle.width > car.x &&
+    motorcycle.y < car.y + car.height &&
+    motorcycle.y + motorcycle.height > car.y) {
+    // collision detected!
+     console.log('Splat!!');
+     return;
+     
+  }
+},100)
+
+
+
 var traffic = [];
 
 window.addEventListener('keydown', keyDownHandler, false);
@@ -52,46 +95,46 @@ var downPressed = false;
 
 function keyDownHandler(event) {
   if(event.keyCode == 39) {
-    console.log('Go right!');  
+    // console.log('Go right!');  
     rightPressed = true;
     $(".motorcycle").animate({
       left: "+=20"
-    // motorcycle.x +=;
-  })
+    });
+    motorcycle.x +=20;
 }
   else if(event.keyCode == 37) {
-    console.log('Go left!');
+    // console.log('Go left!');
       leftPressed = true;
       $(".motorcycle").animate({
         left: "-=20"
-      // motorcycle.x +=;
-    })
-  }
+      });
+      motorcycle.x -=20;
+    }
   if(event.keyCode == 40) {
-    console.log('Go slower!');
+    // console.log('Go slower!');
     downPressed = true;
   }
   else if(event.keyCode == 38) {
-    console.log('Go faster!');
+    // console.log('Go faster!');
     upPressed = true;
   }
 }
 
 function keyUpHandler(event) {
   if(event.keyCode == 39) {
-    console.log('Stop right!');  
+    // console.log('Stop right!');  
     rightPressed = false;
   }
   else if(event.keyCode == 37) {
-    console.log('Stop left!');
+    // console.log('Stop left!');
       leftPressed = false;
   }
   if(event.keyCode == 40) {
-    console.log('Stop slower!');
+    // console.log('Stop slower!');
     downPressed = false;
   }
   else if(event.keyCode == 38) {
-    console.log('Stop faster!');
+    // console.log('Stop faster!');
     upPressed = false;
   }
 }
