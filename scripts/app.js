@@ -60,18 +60,6 @@ var car = {
   height: 100,
 };
 
-var spacePressed = false;
-
-function keyDownHandler(event) {
-  if(event.keyCode == 32) {
-    console.log('Space bar');  
-    spacePressed = true;
-    $(".road").css("animation","scroll 8s infinite linear reverse");
-    $(".cars").css("display","none");
-    $(".motorcycle").css("display","none");
-}
-}
-
 var game = setInterval(function (){
   var carPos = $('#car').position();
   car.x = carPos.left;
@@ -123,16 +111,25 @@ var game = setInterval(function (){
 },1000)
 
 // Use ARROW KEYS to control the motorcycle
+// Use SPACE BAR to start
 window.addEventListener('keydown', keyDownHandler, false);
 window.addEventListener('keyup', keyUpHandler, false);
 
+var spacePressed = false;
 var rightPressed = false;
 var leftPressed = false;
 var upPressed = false;
 var downPressed = false;
 
 function keyDownHandler(event) {
-  if(event.keyCode == 39) {
+  if(event.keyCode == 32) {
+    console.log('Space bar');  
+    spacePressed = true;
+    $("#road").addClass("road");
+    $("#car").addClass("cars");
+    // $(".cars").css("animation","scroll");
+    // $(".motorcycle").css("display","none");
+  } else if(event.keyCode == 39) {
     // console.log('Go right!');  
     rightPressed = true;
     $(".motorcycle").animate({
