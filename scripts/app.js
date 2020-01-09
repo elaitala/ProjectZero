@@ -34,3 +34,5 @@ console.log('The game is running...')
 
 // Add object collision
 // 
+var motorcycle;
+var traffic = [];
