@@ -45,7 +45,7 @@ console.log('The game is running...')
 // }
 var traffic = [];
 var passed = [];
-var counter = 5;
+var counter = 10;
 
 var motorcycle = {
   x: 0,
@@ -65,7 +65,7 @@ var car = {
 var total = 0;
 
 const game = () => { 
-  setInterval(function (){
+  const frames = setInterval(function (){
   // for (let i = 0; i < traffic.length; i++) {
   // for (let i = 0; i < 3; i++) {
     const $cager = $(`<div id="car${total}" class="cars"/>`)
@@ -80,7 +80,7 @@ const game = () => {
       $("#car-container").append($cager);
       traffic.push($cager);
       }
-      
+       
     }
     
     // console.log(traffic);
@@ -109,7 +109,7 @@ for (let i = 0; i < traffic.length; i++) {
 
 console.log('Traffic: ' + traffic.length);
 console.log('Passed: ' + passed.length);
-$('#timer').text(`Traffic: ${counter}`);
+$('#score').text(`Traffic: ${counter} cars`);
 
 // }
   
@@ -130,7 +130,8 @@ $('#timer').text(`Traffic: ${counter}`);
     motorcycle.y + motorcycle.height > car.y) {
     // collision detected!
       console.log('Splat!!');
-      clearInterval(game);
+      clearInterval(frames);
+      traffic = [];
       $("#game-over").css("display","block");
       $(".road").css("animation","none");
       $(".cars").css("display","none");
@@ -141,9 +142,10 @@ $('#timer').text(`Traffic: ${counter}`);
     }
             
     //  WINNER condition
-            if (passed.length === 5){
+            if (passed.length === 10){
               console.log('Winner!!');
-                clearInterval(game);
+                clearInterval(frames);
+                traffic = [];
                 $("#winner").css("display","block");
                 $(".road").css("animation","none");
                 $(".cars").css("animation","none");
@@ -160,11 +162,11 @@ $('#timer').text(`Traffic: ${counter}`);
 window.addEventListener('keydown', keyDownHandler, false);
 window.addEventListener('keyup', keyUpHandler, false);
 
-var spacePressed = false;
-var rightPressed = false;
-var leftPressed = false;
-var upPressed = false;
-var downPressed = false;
+// var spacePressed = false;
+// var rightPressed = false;
+// var leftPressed = false;
+// var upPressed = false;
+// var downPressed = false;
 
 function keyDownHandler(event) {
   if(event.keyCode == 32) {
@@ -173,52 +175,51 @@ function keyDownHandler(event) {
     $("#road").addClass("road");
     // $("#car-container > .car").addClass("cars");
     game();
-    // $(".cars").css("animation","scroll");
-    // $(".motorcycle").css("display","none");
+   
     // Right ARROW and boundary
   } else if(event.keyCode == 39){ //&& motorcycle.x < 400) {
-    console.log('Go right!');  
+    // console.log('Go right!');  
     console.log('Motorcycle at ' + motorcycle.x);
-    rightPressed = true;
+    // rightPressed = true;
     $(".motorcycle").animate({
-      left: "+=20"
+      left: "+=25"
     });
     motorcycle.x +=20;
 }
   // Left ARROW and boundary
     else if(event.keyCode == 37){ //&& motorcycle.x > 40) {
-    console.log('Go left!');
-      leftPressed = true;
+    // console.log('Go left!');
+      // leftPressed = true;
       $(".motorcycle").animate({
-        left: "-=20"
+        left: "-=25"
       });
       motorcycle.x -=20;
     }
   if(event.keyCode == 40) {
     // console.log('Go slower!');
-    downPressed = true;
+    // downPressed = true;
   }
   else if(event.keyCode == 38) {
     // console.log('Go faster!');
-    upPressed = true;
+    // upPressed = true;
   }
 }
 
 function keyUpHandler(event) {
   if(event.keyCode == 39) {
     // console.log('Stop right!');  
-    rightPressed = false;
+    // rightPressed = false;
   }
   else if(event.keyCode == 37) {
     // console.log('Stop left!');
-      leftPressed = false;
+      // leftPressed = false;
   }
   if(event.keyCode == 40) {
     // console.log('Stop slower!');
-    downPressed = false;
+    // downPressed = false;
   }
   else if(event.keyCode == 38) {
     // console.log('Stop faster!');
-    upPressed = false;
+    // upPressed = false;
   }
 }
