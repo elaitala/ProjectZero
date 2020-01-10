@@ -38,7 +38,7 @@ body{
 
 .road:after {
   content: "";
-  height: 1500%;
+  height: 2000%;
   width: 100%;
   left: 0px;
   position: absolute;
@@ -74,7 +74,7 @@ body{
   
   animation-name: vroom;
   animation-duration: 4s;
-  animation-iteration-count: infinite;
+  animation-iteration-count: 1;
   animation-timing-function: linear;
   /* position: relative; */
 }

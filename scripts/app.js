@@ -43,7 +43,7 @@ console.log('The game is running...')
 //    rect1.y + rect1.height > rect2.y) {
 //     // collision detected!
 // }
-var traffic = [1];
+var traffic = [];
 
 var motorcycle = {
   x: 0,
@@ -60,10 +60,69 @@ var car = {
   height: 100,
 };
 
-var game = setInterval(function (){
-  var carPos = $('#car').position();
-  car.x = carPos.left;
-  car.y = carPos.top;
+var total = 0;
+
+const game = () => { 
+  setInterval(function (){
+  // for (let i = 0; i < traffic.length; i++) {
+  // for (let i = 0; i < 3; i++) {
+    const $cager = $(`<div id="car${total}" class="cars"/>`)
+    // traffic[i].push("")
+    // $cager.css("animation-delay",2000);
+    let lanes = [40,190,340]
+
+    if(total%2 === 0){
+    
+      if(Boolean(Math.round(Math.random()))){
+        $cager.css('right', lanes[Math.floor(Math.random()*lanes.length)])
+      $("#car-container").append($cager);
+      traffic.push($cager);
+      }
+      
+    }
+    
+    // console.log(traffic);
+    total ++;
+    
+  // }
+
+  // for (let i = 0; i < 3; i++) {
+  //   const $cager = $('<div class="cars"/>')
+  //   traffic[i].push("")
+  //   $cager.css("animation-delay",`${i}000`);
+  //   $("#car").append($cager);
+    
+  // }
+  
+  // const createSquares = (numberOfSquares) => {
+  //   const $squares = $('.squares');
+  //   for (let i = 0; i < numberOfSquares; i++) {
+  //      const $square = $('<div class="square"/>')
+  //      $square.css('background-color', applyRandomColor());
+  //      $squares.append($square)
+  //   }
+  // }
+for (let i = 0; i < traffic.length; i++) {
+  var carPosition = $(traffic[i][0]).position();
+  
+  
+  // console.log($(traffic[i]));
+  console.log($(traffic[i][0]).position());
+  // debugger;
+  // console.log(carPosition);
+  if (carPosition.top > 400){
+    traffic[i][0].remove();
+    traffic.splice(i,1);
+  }
+
+  // add collision here
+
+
+}
+  
+  // var carPos = $('#car').position();
+  // car.x = carPos.left;
+  // car.y = carPos.top;
   // console.log('Car X: ' + car.x + ", Y: " + car.y );
 
   var motorcyclePos = $('#motorcycle').position();
@@ -109,6 +168,7 @@ var game = setInterval(function (){
 
 
 },1000)
+}
 
 // Use ARROW KEYS to control the motorcycle
 // Use SPACE BAR to start
@@ -126,7 +186,8 @@ function keyDownHandler(event) {
     console.log('Space bar');  
     spacePressed = true;
     $("#road").addClass("road");
-    $("#car").addClass("cars");
+    // $("#car-container > .car").addClass("cars");
+    game();
     // $(".cars").css("animation","scroll");
     // $(".motorcycle").css("display","none");
   } else if(event.keyCode == 39) {
