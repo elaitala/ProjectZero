@@ -43,11 +43,12 @@ var car = {
   height: 100,
 };
 
-const step = 25; // Pixels of each step LEFT/RIGHT
+const step = 10; // Pixels of each step LEFT/RIGHT
+var traffic = []; // Array to hold cars
 var total = 0;
 
 const game = () => { 
-  var traffic = []; // Array to hold cars
+  
   var passed = [];  // Array to track cars passed
   var counter = 10; // Number of cars each round
   
@@ -132,7 +133,7 @@ window.addEventListener('keydown', keyDownHandler, false);
 window.addEventListener('keyup', keyUpHandler, false);
 
 function keyDownHandler(event) {
-  if(event.keyCode == 32) {
+  if(event.keyCode == 32 && traffic.length === 0) {
     console.log('Space bar');  
     $("#road").addClass("road");
     $("#game-over").css("display","none");
@@ -141,21 +142,22 @@ function keyDownHandler(event) {
     game();
    
     // Right ARROW and boundary
-  } else if(event.keyCode === 39 && motorcycle.x < 405) {
+  } else if(event.keyCode === 39 && motorcycle.x < 410) {
       // console.log('Go right!');  
       console.log('Motorcycle at ' + motorcycle.x);
       // rightPressed = true;
-      $(".motorcycle").animate({
-        left: `+=${step}`
+      $(".motorcycle").css({
+        left: `+=${step}`,
+
         // left: "+=25"
       });
       motorcycle.x +=step;
   // Left ARROW and boundary
-  }  else if(event.keyCode === 37 && motorcycle.x > 30) {
+  }  else if(event.keyCode === 37 && motorcycle.x > 5) {
       // console.log('Go left!');
       console.log('Motorcycle at ' + motorcycle.x);
       // leftPressed = true;
-      $(".motorcycle").animate({
+      $(".motorcycle").css({
         left: `-=${step}`
         // left: "-=25"
       });
