@@ -44,6 +44,7 @@ console.log('The game is running...')
 //     // collision detected!
 // }
 var traffic = [];
+var passed = [];
 
 var motorcycle = {
   x: 0,
@@ -83,6 +84,7 @@ const game = () => {
     
     // console.log(traffic);
     total ++;
+    console.log ('Total = ' + total);
     
   // }
 
@@ -114,11 +116,13 @@ for (let i = 0; i < traffic.length; i++) {
   if (carPosition.top > 400){
     traffic[i][0].remove();
     traffic.splice(i,1);
+    passed.push(0);
   }
-
+// append from traffic to new PASSED array, measure length
   // add collision here
 
-
+console.log('Traffic: ' + traffic.length);
+console.log('Passed: ' + passed.length);
 // }
   
   // var carPos = $('#car').position();
@@ -144,18 +148,18 @@ for (let i = 0; i < traffic.length; i++) {
       $(".cars").css("display","none");
       $(".motorcycle").css("display","none");
       // clearMe = true; // Used to clear the canvas from any ships		
-    
-  if (traffic.length === 0){
-    console.log('Winner!!');
-      clearInterval(game);
-      $("#winner").css("display","block");
-      $(".road").css("animation","none");
-      $(".cars").css("animation","none");
-      $(".cars").css("display","none");
-  }
-  // subtract from life 
-    // motorcycle.life -=1;       
-  }
+      // subtract from life 
+      // motorcycle.life -=1;       
+    }
+            if (passed.length === 5){
+              console.log('Winner!!');
+                clearInterval(game);
+                $("#winner").css("display","block");
+                $(".road").css("animation","none");
+                $(".cars").css("animation","none");
+                $(".cars").css("display","none");
+          
+          }
 }
   // if(traffic.length === 0){
   //   fill(0,255,0);
