@@ -1,6 +1,10 @@
 /* Build the road */
 /* Black road with green sides */
 /* Lane stripes */
+*{
+  font-family: Arial, Helvetica, sans-serif;
+}
+
 body{
   height: 100vh;
   width: 100vw;
@@ -11,6 +15,19 @@ body{
   padding: 0;
   background-color: green;
   color: white;
+}
+h1{
+  margin: 0, 0;
+  display: flex;
+}
+h2{
+  margin: 0;
+  font-size: 15px;
+}
+
+.logo {
+  height: 70px;
+  display: 
 }
 
 .game {
@@ -28,7 +45,7 @@ body{
 .road {
   width: 100%;
   position: relative;
-  animation: scroll 8s infinite linear reverse;
+  animation: scroll 1.5s infinite linear reverse;
   /* animation: none;
   animation-duration: 8s;
   animation-direction: reverse;
@@ -114,10 +131,13 @@ body{
   background: url(/images/Skull.jpg);
   display: none;
   position: absolute;
-  top: 250px;
-  left: 180px;
+  height: 100%;
+  width: 100%;
+  top: 0px;
+  left: 0px;
   color: red;
   font-size: 50px;
+  font-weight: 300;
   z-index: 3;
 }
 #winner{

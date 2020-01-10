@@ -104,7 +104,8 @@ const game = () => {
   // }
 for (let i = 0; i < traffic.length; i++) {
   var carPosition = $(traffic[i][0]).position();
-  
+  car.x = carPosition.left;
+  car.y = carPosition.top;
   
   // console.log($(traffic[i]));
   console.log($(traffic[i][0]).position());
@@ -118,7 +119,7 @@ for (let i = 0; i < traffic.length; i++) {
   // add collision here
 
 
-}
+// }
   
   // var carPos = $('#car').position();
   // car.x = carPos.left;
@@ -155,7 +156,7 @@ for (let i = 0; i < traffic.length; i++) {
   // subtract from life 
     // motorcycle.life -=1;       
   }
-
+}
   // if(traffic.length === 0){
   //   fill(0,255,0);
   //   textSize(100);
@@ -190,15 +191,18 @@ function keyDownHandler(event) {
     game();
     // $(".cars").css("animation","scroll");
     // $(".motorcycle").css("display","none");
-  } else if(event.keyCode == 39) {
+    // Right ARROW and boundary
+  } else if(event.keyCode == 39 && motorcycle.x < 400) {
     // console.log('Go right!');  
+    console.log(motorcycle.x);
     rightPressed = true;
     $(".motorcycle").animate({
       left: "+=20"
     });
     motorcycle.x +=20;
 }
-  else if(event.keyCode == 37) {
+  // Left ARROW and boundary
+    else if(event.keyCode == 37 && motorcycle.x > 40) {
     // console.log('Go left!');
       leftPressed = true;
       $(".motorcycle").animate({
