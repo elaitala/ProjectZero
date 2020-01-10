@@ -45,6 +45,7 @@ console.log('The game is running...')
 // }
 var traffic = [];
 var passed = [];
+var counter = 5;
 
 var motorcycle = {
   x: 0,
@@ -86,24 +87,7 @@ const game = () => {
     total ++;
     console.log ('Total = ' + total);
     
-  // }
-
-  // for (let i = 0; i < 3; i++) {
-  //   const $cager = $('<div class="cars"/>')
-  //   traffic[i].push("")
-  //   $cager.css("animation-delay",`${i}000`);
-  //   $("#car").append($cager);
-    
-  // }
-  
-  // const createSquares = (numberOfSquares) => {
-  //   const $squares = $('.squares');
-  //   for (let i = 0; i < numberOfSquares; i++) {
-  //      const $square = $('<div class="square"/>')
-  //      $square.css('background-color', applyRandomColor());
-  //      $squares.append($square)
-  //   }
-  // }
+  // 
 for (let i = 0; i < traffic.length; i++) {
   var carPosition = $(traffic[i][0]).position();
   car.x = carPosition.left;
@@ -117,12 +101,16 @@ for (let i = 0; i < traffic.length; i++) {
     traffic[i][0].remove();
     traffic.splice(i,1);
     passed.push(0);
+    counter = counter -1;
+    console.log(counter);
   }
 // append from traffic to new PASSED array, measure length
   // add collision here
 
 console.log('Traffic: ' + traffic.length);
 console.log('Passed: ' + passed.length);
+$('#timer').text(`Traffic: ${counter}`);
+
 // }
   
   // var carPos = $('#car').position();
@@ -151,6 +139,8 @@ console.log('Passed: ' + passed.length);
       // subtract from life 
       // motorcycle.life -=1;       
     }
+            
+    //  WINNER condition
             if (passed.length === 5){
               console.log('Winner!!');
                 clearInterval(game);
@@ -161,18 +151,8 @@ console.log('Passed: ' + passed.length);
           
           }
 }
-  // if(traffic.length === 0){
-  //   fill(0,255,0);
-  //   textSize(100);
-  //   text("Survived another day!", width/2-200,height/2);
-  // }else if(motorcycle.life === 0){
-  //   fill(255,0,0);
-  //   textSize(100);
-  //   text("Splat!", width/2-200,height/2);
-  // }
-
-
-},1000)
+  
+},500)
 }
 
 // Use ARROW KEYS to control the motorcycle
@@ -196,9 +176,9 @@ function keyDownHandler(event) {
     // $(".cars").css("animation","scroll");
     // $(".motorcycle").css("display","none");
     // Right ARROW and boundary
-  } else if(event.keyCode == 39 && motorcycle.x < 400) {
-    // console.log('Go right!');  
-    console.log(motorcycle.x);
+  } else if(event.keyCode == 39){ //&& motorcycle.x < 400) {
+    console.log('Go right!');  
+    console.log('Motorcycle at ' + motorcycle.x);
     rightPressed = true;
     $(".motorcycle").animate({
       left: "+=20"
@@ -206,8 +186,8 @@ function keyDownHandler(event) {
     motorcycle.x +=20;
 }
   // Left ARROW and boundary
-    else if(event.keyCode == 37 && motorcycle.x > 40) {
-    // console.log('Go left!');
+    else if(event.keyCode == 37){ //&& motorcycle.x > 40) {
+    console.log('Go left!');
       leftPressed = true;
       $(".motorcycle").animate({
         left: "-=20"
